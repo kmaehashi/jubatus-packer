@@ -1,0 +1,19 @@
+- name: setup OCaml
+  command: opam init --yes --comp 4.02.1
+
+- name: setup OCaml libraries
+  command: opam install --yes ounit extlib omake ppx_deriving
+
+- name: clone jubatus repository
+  git: repo=https://github.com/jubatus/jubatus.git dest=~/jubatus
+
+- name: build jenerator
+  shell: eval $(/usr/local/bin/opam config env) && cd ~/jubatus/tools/jenerator && omake
+
+- name: get path to the built jenerator
+  command: readlink -f ~/jubatus/tools/jenerator/src/jenerator.opt
+  register: jenerator_path
+
+- name: install jenerator
+  become: yes
+  command: cp {{ jenerator_path.stdout }} /usr/local/bin/jenerator

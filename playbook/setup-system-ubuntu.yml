@@ -1,0 +1,30 @@
+- name: install Jubatus repository
+  copy: content='deb http://download.jubat.us/apt binary/' dest=/etc/apt/sources.list.d/jubatus.list
+
+- name: upgrade all packages
+  apt: upgrade=yes update_cache=yes
+
+- name: install packages
+  apt: name="{{ item }}" state=latest force=yes
+  with_items:
+    # Development Tools
+    - build-essential
+    - git
+    # Jubatus Server
+    - jubatus
+    # Jubatus Python Client
+    - python-dev
+    - python-pip
+    # Jubatus Ruby Client
+    - ruby1.9.1
+    - ruby1.9.1-dev
+    # Jubatus Java Client
+    - openjdk-7-jdk
+    - maven2
+    # Jubatus Build Requirements
+    - liblog4cxx10-dev
+    - pkg-config
+    # OPAM Requirements
+    - curl
+    - m4
+    - unzip

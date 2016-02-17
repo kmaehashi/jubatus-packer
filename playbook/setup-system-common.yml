@@ -1,0 +1,11 @@
+- name: install Jubatus Python Client
+  pip: name=jubatus state=latest
+
+- name: install Jubatus Ruby Client
+  gem: name=jubatus state=latest
+
+- name: download OPAM installer
+  get_url: url=https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh dest=/tmp/opam_installer.sh
+
+- name: install OPAM
+  command: sh /tmp/opam_installer.sh /usr/local/bin

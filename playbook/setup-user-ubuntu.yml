@@ -1,0 +1,13 @@
+- name: add profile to .bash_profile
+  blockinfile:
+    dest: ~/.bash_profile
+    create: yes
+    block: |
+
+      # Jubatus
+      source /opt/jubatus/profile
+
+      # OPAM (for Jubatus jenerator)
+      export PATH="/usr/local/bin:${PATH}"
+      eval `/usr/local/bin/opam config env`
+      . ~/.opam/opam-init/init.sh

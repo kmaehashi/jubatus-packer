@@ -1,0 +1,5 @@
+- name: clone jubatus-example repository
+  git: repo=https://github.com/jubatus/jubatus-example.git dest=~/jubatus-example
+
+- name: clone handson-text repository
+  git: repo=https://github.com/jubatus/handson-text.git dest=~/handson-text

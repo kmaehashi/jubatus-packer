@@ -1,0 +1,25 @@
+- name: setup
+  hosts: all
+  tasks:
+    - include: setup-system-ubuntu.yml
+      become: yes
+      when: "ansible_os_family == 'Debian'"
+
+    # - include: setup-system-rhel.yml
+    #   when: ansible_os_family == "RedHat"
+
+    - include: setup-system-common.yml
+      become: yes
+
+    - include: setup-user-ubuntu.yml
+      when: "ansible_os_family == 'Debian'"
+
+    # - include: setup-user-rhel.yml
+    #   when: ansible_os_family == "RedHat"
+
+    - include: setup-user-common.yml
+
+- name: setup for handson
+  hosts: handson
+  tasks:
+    - include: setup-handson.yml
