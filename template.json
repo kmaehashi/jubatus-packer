@@ -19,6 +19,11 @@
       "tags": {
         "Name": "{{user `ami_name_tag`}}"
       }
+    },
+    {
+      "type": "docker",
+      "image": "ubuntu:14.04",
+      "commit": true
     }
   ],
   "provisioners": [
