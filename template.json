@@ -23,6 +23,7 @@
     {
       "type": "docker",
       "image": "ubuntu:14.04",
+      "run_command": ["-d", "-i", "-t", "--env-file", "docker.env", "{{.Image}}", "/bin/bash"],
       "commit": true
     }
   ],

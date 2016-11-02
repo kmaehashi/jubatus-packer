@@ -6,7 +6,8 @@ while [ "$PACKER_BUILDER_TYPE" = "amazon-ebs" -a ! -f /var/lib/cloud/instance/bo
   sleep 1;
 done
 
-sudo apt-get -y install software-properties-common
-sudo apt-add-repository -y ppa:ansible/ansible
-sudo apt-get -y update
-sudo apt-get -y install ansible
+sudo -E apt-get -y update
+sudo -E apt-get -y install software-properties-common aptitude
+sudo -E apt-add-repository -y ppa:ansible/ansible
+sudo -E apt-get -y update
+sudo -E apt-get -y install ansible
