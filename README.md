@@ -1,8 +1,8 @@
 # Packer Template for Jubatus
 
-Packer template to create Jubatus VM.
+Packer template to create Jubatus AMI & Docker image.
 
-## Usage (AMI)
+## Usage
 
 ```sh
 export AWS_ACCESS_KEY_ID="XXXXXXXXXXXXXXXXXXXX"
@@ -17,6 +17,8 @@ For hands-on images (include jubatus-example and handson-text repository), speci
 ```sh
 packer build -var "ami_region=ap-northeast-1" -var "ami_name_tag=jubatus-1.0.0" -var "source_ami=ami-c88325a9" -var "image_type=handson" template.json
 ```
+
+If you only need Docker image, use ``packer build -except=amazon-ebs``.
 
 ### Note
 
