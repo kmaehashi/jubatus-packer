@@ -1,5 +1,6 @@
 {
   "variables": {
+    "ami_region": "ap-northeast-1",
     "ami_name_tag": null,
     "source_ami": null,
     "instance_type": "m3.large",
@@ -8,7 +9,7 @@
   "builders": [
     {
       "type": "amazon-ebs",
-      "region": "ap-northeast-1",
+      "region": "{{user `ami_region`}}",
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "{{user `instance_type`}}",
       "ssh_pty" : "true",
