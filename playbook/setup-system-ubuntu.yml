@@ -9,6 +9,9 @@
   with_items:
     # Development Tools
     - build-essential
+    - autoconf
+    - automake
+    - libtool
     - git
     # Jubatus Server
     - jubatus
