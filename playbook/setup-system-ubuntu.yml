@@ -1,5 +1,5 @@
-- name: install Jubatus repository
-  copy: content='deb http://download.jubat.us/apt binary/' dest=/etc/apt/sources.list.d/jubatus.list
+- name: install Jubatus repository (Ubuntu 14.04)
+  copy: content='deb http://download.jubat.us/apt/ubuntu/trusty binary/' dest=/etc/apt/sources.list.d/jubatus.list
 
 - name: upgrade all packages
   apt: upgrade=yes update_cache=yes
