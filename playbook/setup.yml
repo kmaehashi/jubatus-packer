@@ -31,3 +31,10 @@
     - hackathon
   tasks:
     - include: setup-hackathon.yml
+
+- name: cleanup (to shrink image size)
+  hosts: all
+  tasks:
+    - include: cleanup-ubuntu.yml
+      become: yes
+      when: "ansible_os_family == 'Debian'"
