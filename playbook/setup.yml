@@ -20,6 +20,14 @@
     - include: setup-user-common.yml
 
 - name: setup for handson
-  hosts: handson
+  hosts:
+    - handson
+    - hackathon
   tasks:
     - include: setup-handson.yml
+
+- name: setup for hackathon
+  hosts:
+    - hackathon
+  tasks:
+    - include: setup-hackathon.yml

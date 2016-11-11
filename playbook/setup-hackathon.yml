@@ -1,0 +1,2 @@
+- name: clone hackathon repository
+  git: repo=https://github.com/jubatus/hackathon.git dest=~/hackathon
