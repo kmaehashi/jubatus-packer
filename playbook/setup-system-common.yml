@@ -4,6 +4,15 @@
 - name: install Jubatus Ruby Client
   gem: name=jubatus state=latest
 
+- name: install Jubakit
+  pip: name=jubakit state=latest
+
+- name: install Tweepy (for jubakit)
+  pip: name=tweepy state=latest
+
+- name: install jq (for jubakit)
+  pip: name=jq state=latest
+
 - name: download OPAM installer
   get_url: url=https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh dest=/tmp/opam_installer.sh
 
